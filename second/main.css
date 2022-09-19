@@ -326,4 +326,9 @@
    margin-left: 775px;
    margin-top: -10px;
    font-size: 18px;
+   text-decoration-color: .2 linear;
+}
+.main90:hover {
+   color: #808080;
+
 }
