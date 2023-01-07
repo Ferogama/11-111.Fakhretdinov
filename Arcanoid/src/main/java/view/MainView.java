@@ -4,16 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.ArkanoidButton;
 import model.ArkanoidSubScene;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,12 +29,16 @@ public class MainView {
 
     private final static int menuButtonsX = 100;
     private final static int menuButtonsY = 150;
-    private static String backgroundimage = "https://www.c64-wiki.com/images/thumb/6/60/Arkanoid-title.png/300px-Arkanoid-title.png";
-    private ArkanoidSubScene playSubScene;
+    private static String backgroundimage = "https://clck.ru/33Cy39";
+    //private ArkanoidSubScene playSubScene;
     private ArkanoidSubScene settingsSubScene;
     private ArkanoidSubScene rulesSubScene;
 
     private ArkanoidSubScene sceneToHide;
+    String rules1 = "Правила достаточно просты:" + "\n" +
+            " геймеру необходимо контролировать"  + "\n" + "небольшую платформу — отбивать шарик," +
+            "\n" + "чтобы исключить его падение." +"\n"+ "Главная задача — с помощью шара"+
+            "\n" + "разбить все кирпичи, висящие сверху.";
 
 
 
@@ -44,6 +53,7 @@ public class MainView {
         createBackground();
         crateButtons();
         createSubScene();
+        createRulesSubcene();
 
 
 
@@ -62,14 +72,31 @@ public class MainView {
     }
     //сцены
     private void createSubScene() {
-        playSubScene = new ArkanoidSubScene();
-        mainPane.getChildren().add(playSubScene);
 
         settingsSubScene = new ArkanoidSubScene();
         mainPane.getChildren().add(settingsSubScene);
 
+
+    }
+    public void createRulesSubcene() {
         rulesSubScene = new ArkanoidSubScene();
         mainPane.getChildren().add(rulesSubScene);
+
+        Label label = new Label("Правила игры");
+        label.setLayoutX(100);
+        label.setLayoutY(25);
+        label.setFont(Font.font("Verdana",40));
+        label.setStyle("-fx-text-fill: #FFD700");
+        rulesSubScene.getPane().getChildren().add(label);
+
+        Label arkanoidRules = new Label(rules1);
+        arkanoidRules.setLayoutX(40);
+        arkanoidRules.setLayoutY(80);
+        arkanoidRules.setFont(Font.font("Verdana",20));
+        arkanoidRules.setStyle("-fx-text-fill: FFD700");
+        rulesSubScene.getPane().getChildren().add(arkanoidRules);
+
+
     }
     //кнопки
     private void addMenuButtons(Button button) {
@@ -93,7 +120,8 @@ public class MainView {
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                showSubScene(playSubScene);
+                GameViewManger gameManger = new GameViewManger();
+                gameManger.createNewGame(mainStage);
             }
         });
     }
@@ -147,4 +175,5 @@ public class MainView {
 
         mainPane.setBackground(new Background(backi));
     }
+
 }
