@@ -13,16 +13,13 @@ import javafx.scene.text.Font;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class Button extends javafx.scene.control.Button {
+public class ArkanoidButton extends javafx.scene.control.Button {
 
-    private final String Button_Pressed_Style = "-fx-background-image: url('/model/resources/buttonSelected.png')";
-    private final String Button_Default_Style =  "-fx-background-image: url('/model/resources/button.png')";;
-
-    public Button(String text) {
+    public ArkanoidButton(String text) {
         setText(text);
         setPrefHeight(49);
         setPrefWidth(100);
-        setStyle("-fx-background-color: green");
+        setStyle("-fx-background-color: purple");
         initializeButtonListeners();
 
 
@@ -30,13 +27,13 @@ public class Button extends javafx.scene.control.Button {
 
 
     private void setButtonPressedStyle() {
-        setStyle(Button_Pressed_Style);
+        setStyle("-fx-background-color: black");
         setPrefHeight(45);
         setLayoutY(getLayoutY() + 4);
     }
 
     private void setButtonReleasedStyle() {
-        setStyle(Button_Default_Style);
+        setStyle("-fx-background-color: purple");
         setPrefHeight(49);
         setLayoutY(getLayoutY() - 4);
     }
