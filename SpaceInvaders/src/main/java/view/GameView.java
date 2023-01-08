@@ -81,6 +81,7 @@ public class GameView extends Application {
         });
         setup();
         prefstage.setScene(new Scene(new StackPane(canvas)));
+        prefstage.setTitle("Space Invaders");
         prefstage.show();
 
     }
