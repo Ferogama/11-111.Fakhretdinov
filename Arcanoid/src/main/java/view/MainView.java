@@ -121,8 +121,12 @@ public class MainView {
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                GameViewManger gameManger = new GameViewManger();
-                gameManger.createNewGame(mainStage);
+//                GameViewManger gameManger = new GameViewManger();
+//                gameManger.createNewGame(mainStage);
+//                GameManager game = new GameManager();
+//                game.start(prefStage);
+               GameManager game = new GameManager();
+               game.create
             }
         });
     }
