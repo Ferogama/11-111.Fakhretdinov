@@ -110,7 +110,7 @@ public class GameView extends Application {
         player.draw();
         player.posX = (int) mouseX;
         Bombs.stream().peek(Rocket::update).peek(Rocket::draw).forEach(e -> {
-            if (player.colide(e) && player.exploding) {
+            if (player.colide(e) && !player.exploding) {
                 player.explode();
             }
         });
@@ -142,9 +142,9 @@ public class GameView extends Application {
         if (random.nextInt(10) > 2) {
             univ.add(new Universe());
         }
-        for (int j = 0; j < univ.size(); j++) {
-            if (univ.get(j).posX > Height) {
-                univ.remove(j);
+        for (int i = 0; i < univ.size(); i++) {
+            if (univ.get(i).posX > Height) {
+                univ.remove(i);
             }
         }
     }
