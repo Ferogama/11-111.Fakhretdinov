@@ -126,7 +126,7 @@ public class MainView {
 //                GameManager game = new GameManager();
 //                game.start(prefStage);
                GameManager game = new GameManager();
-               game.create
+               //game.start();
             }
         });
     }
