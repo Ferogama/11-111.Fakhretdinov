@@ -14,14 +14,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.ArkanoidButton;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-public class GameManager extends Application {
+public class GameView extends Application {
     private static final Random random = new Random();
     private static final int Player_size = 60;
 
@@ -82,7 +82,7 @@ public class GameManager extends Application {
         setup();
         prefstage.setScene(new Scene(new StackPane(canvas)));
         prefstage.show();
-        ArkanoidButton play = new ArkanoidButton("Play");
+
     }
 
     private void setup() {

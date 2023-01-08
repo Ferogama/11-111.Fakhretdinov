@@ -6,10 +6,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
-public class ArkanoidSubScene extends SubScene {
+public class InvadersSubScene extends SubScene {
     private static final String subceneImage = "https://clck.ru/33CuvC";
     private  boolean isHidden;
-    public ArkanoidSubScene() {
+    public InvadersSubScene() {
         super(new AnchorPane(),600,400);
         BackgroundImage image = new BackgroundImage(new Image(subceneImage,500,400,false,true),
                 BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);

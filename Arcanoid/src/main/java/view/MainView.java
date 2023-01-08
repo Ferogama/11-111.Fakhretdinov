@@ -13,8 +13,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.ArkanoidButton;
-import model.ArkanoidSubScene;
+import model.InvadersButton;
+import model.InvadersSubScene;
+import model.InvadersButton;
+import model.InvadersSubScene;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -31,10 +33,10 @@ public class MainView {
     private final static int menuButtonsY = 150;
     private static String backgroundimage = "https://clck.ru/33Cy39";
     //private ArkanoidSubScene playSubScene;
-    private ArkanoidSubScene settingsSubScene;
-    private ArkanoidSubScene rulesSubScene;
+    private InvadersSubScene settingsSubScene;
+    private InvadersSubScene rulesSubScene;
 
-    private ArkanoidSubScene sceneToHide;
+    private InvadersSubScene sceneToHide;
     String rules1 = "Правила достаточно просты:" + "\n" +
             " геймеру необходимо контролировать" + "\n" + "небольшую платформу — отбивать шарик," +
             "\n" + "чтобы исключить его падение." + "\n" + "Главная задача — с помощью шара" +
@@ -61,7 +63,7 @@ public class MainView {
         return mainStage;
     }
 
-    private void showSubScene(ArkanoidSubScene subScene) {
+    private void showSubScene(InvadersSubScene subScene) {
         if (sceneToHide != null) {
             sceneToHide.moveSubScene();
         }
@@ -72,14 +74,14 @@ public class MainView {
     //сцены
     private void createSubScene() {
 
-        settingsSubScene = new ArkanoidSubScene();
+        settingsSubScene = new InvadersSubScene();
         mainPane.getChildren().add(settingsSubScene);
 
 
     }
 
     public void createRulesSubcene() {
-        rulesSubScene = new ArkanoidSubScene();
+        rulesSubScene = new InvadersSubScene();
         mainPane.getChildren().add(rulesSubScene);
 
         Label label = new Label("Правила игры");
@@ -116,23 +118,23 @@ public class MainView {
     }
 
     private void createPlaysButton() {
-        ArkanoidButton play = new ArkanoidButton("Play");
+        InvadersButton play = new InvadersButton("Play");
         addMenuButtons(play);
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-//                GameViewManger gameManger = new GameViewManger();
-//                gameManger.createNewGame(mainStage);
-//                GameManager game = new GameManager();
-//                game.start(prefStage);
-               GameManager game = new GameManager();
-               //game.start();
+                try {
+                    GameView game = new GameView();
+                    game.start(mainStage);
+                } catch (Exception e ) {
+                    System.out.println(e);
+                }
             }
         });
     }
 
     private void createSettingsButton() {
-        ArkanoidButton settings = new ArkanoidButton("Settings");
+        InvadersButton settings = new InvadersButton("Settings");
         addMenuButtons(settings);
         settings.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -143,7 +145,7 @@ public class MainView {
     }
 
     private void createRulesButton() {
-        ArkanoidButton rules = new ArkanoidButton("Rules");
+        InvadersButton rules = new InvadersButton("Rules");
         addMenuButtons(rules);
 
         rules.setOnAction(new EventHandler<ActionEvent>() {
@@ -155,7 +157,7 @@ public class MainView {
     }
 
     private void createExitButton() {
-        ArkanoidButton exit = new ArkanoidButton("Exit");
+        InvadersButton exit = new InvadersButton("Exit");
         addMenuButtons(exit);
         exit.setOnAction(new EventHandler<ActionEvent>() {
             @Override

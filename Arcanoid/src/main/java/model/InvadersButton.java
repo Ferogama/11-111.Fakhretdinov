@@ -3,19 +3,12 @@ package model;
 
 import javafx.event.EventHandler;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+public class InvadersButton extends javafx.scene.control.Button {
 
-public class ArkanoidButton extends javafx.scene.control.Button {
-
-    public ArkanoidButton(String text) {
+    public InvadersButton(String text) {
         setText(text);
         setPrefHeight(49);
         setPrefWidth(100);
