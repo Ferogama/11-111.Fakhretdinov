@@ -36,10 +36,9 @@ public class MainView {
 
     private ArkanoidSubScene sceneToHide;
     String rules1 = "Правила достаточно просты:" + "\n" +
-            " геймеру необходимо контролировать"  + "\n" + "небольшую платформу — отбивать шарик," +
-            "\n" + "чтобы исключить его падение." +"\n"+ "Главная задача — с помощью шара"+
+            " геймеру необходимо контролировать" + "\n" + "небольшую платформу — отбивать шарик," +
+            "\n" + "чтобы исключить его падение." + "\n" + "Главная задача — с помощью шара" +
             "\n" + "разбить все кирпичи, висящие сверху.";
-
 
 
     List<Button> menuButtons;
@@ -56,7 +55,6 @@ public class MainView {
         createRulesSubcene();
 
 
-
     }
 
     public Stage getMainStage() {
@@ -70,6 +68,7 @@ public class MainView {
         subScene.moveSubScene();
         sceneToHide = subScene;
     }
+
     //сцены
     private void createSubScene() {
 
@@ -78,6 +77,7 @@ public class MainView {
 
 
     }
+
     public void createRulesSubcene() {
         rulesSubScene = new ArkanoidSubScene();
         mainPane.getChildren().add(rulesSubScene);
@@ -85,19 +85,20 @@ public class MainView {
         Label label = new Label("Правила игры");
         label.setLayoutX(100);
         label.setLayoutY(25);
-        label.setFont(Font.font("Verdana",40));
+        label.setFont(Font.font("Verdana", 40));
         label.setStyle("-fx-text-fill: #FFD700");
         rulesSubScene.getPane().getChildren().add(label);
 
         Label arkanoidRules = new Label(rules1);
         arkanoidRules.setLayoutX(40);
         arkanoidRules.setLayoutY(80);
-        arkanoidRules.setFont(Font.font("Verdana",20));
+        arkanoidRules.setFont(Font.font("Verdana", 20));
         arkanoidRules.setStyle("-fx-text-fill: FFD700");
         rulesSubScene.getPane().getChildren().add(arkanoidRules);
 
 
     }
+
     //кнопки
     private void addMenuButtons(Button button) {
         button.setLayoutX(menuButtonsX);
@@ -159,19 +160,9 @@ public class MainView {
             }
         });
     }
-    //логотип игры
-//    public void createLogo() {
-//        ImageView logo = new ImageView("https://clck.ru/33CujF");
-//        logo.setFitWidth(350);
-//        logo.setFitHeight(100);
-//        logo.setLayoutX(400);
-//        logo.setLayoutY(10);
-//        mainPane.getChildren().add(logo);
-//    }
-    //background
     public void createBackground() {
-        BackgroundImage backi = new BackgroundImage(new Image(backgroundimage,800,700,false,true),
-                BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
+        BackgroundImage backi = new BackgroundImage(new Image(backgroundimage, 800, 700, false, true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
 
         mainPane.setBackground(new Background(backi));
     }
